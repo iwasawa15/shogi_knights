@@ -213,7 +213,10 @@ class Piece extends StatelessWidget {
       width: 30.0,
       height: 30.0,
       child: GestureDetector(
-        child: piece.image,
+        child: RotatedBox(
+          quarterTurns: piece.player > 0 ? 0 : 90,
+          child: piece.image,
+        ),
         onTap: () {
           List<PlaceViewModel> places = movablePlace(piece);
           this.display(piece, places);
