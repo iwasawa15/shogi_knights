@@ -21,18 +21,29 @@ class _GamePageState extends State<GamePage> {
   List<PieceViewModel> pieces;
   List<PlaceViewModel> places;
   PieceViewModel selectedPiece;
+  int turn;
 
-  _GamePageState({this.pieces, this.places, this.selectedPiece});
+  _GamePageState({
+    this.pieces,
+    this.places,
+    this.selectedPiece,
+    this.turn,
+  });
 
   void reload() {
     setState(() {
       List<PieceViewModel> pieces = pieceUseCase.getPieces();
       this.pieces = pieces;
       this.places = [];
+      this.turn = 1;
     });
   }
 
   void displayMovablePlaces(PieceViewModel piece, List<PlaceViewModel> places) {
+    if (piece.player != this.turn) {
+      return null;
+    }
+
     setState(() {
       this.selectedPiece = piece;
       this.places = places;
@@ -46,8 +57,12 @@ class _GamePageState extends State<GamePage> {
         column: place.column,
         row: place.row,
         image: selectedPiece.image,
+        player: selectedPiece.player,
       );
       this.pieces[this.pieces.indexOf(selectedPiece)] = newPiece;
+      this.selectedPiece = null;
+      this.places = [];
+      this.turn *= -1;
     });
   }
 

@@ -9,6 +9,12 @@ class Place extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (place.column < 1 ||
+        place.column > 9 ||
+        place.row < 1 ||
+        place.row > 9) {
+      return Container();
+    }
     return Positioned(
       left: place.column * 34.5,
       top: place.row * 34.5,

@@ -14,21 +14,21 @@ class Piece extends StatelessWidget {
         return [
           PlaceViewModel(
             column: piece.column,
-            row: piece.row + 1,
+            row: piece.row - 1 * piece.player,
           ),
         ];
         break;
       case 'kaku':
         return [
           PlaceViewModel(
-            column: piece.column + 1,
-            row: piece.row + 1,
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 1 * piece.player,
           ),
         ];
       case 'hisha':
         return [
           PlaceViewModel(
-            column: piece.column + 1,
+            column: piece.column - 1 * piece.player,
             row: piece.row,
           ),
         ];
@@ -36,42 +36,170 @@ class Piece extends StatelessWidget {
         return [
           PlaceViewModel(
             column: piece.column,
-            row: piece.row + 1,
+            row: piece.row - 1 * piece.player,
           ),
         ];
       case 'keima':
         return [
           PlaceViewModel(
-            column: piece.column + 1,
-            row: piece.row + 2,
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 2 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row - 2 * piece.player,
           ),
         ];
       case 'gin':
         return [
           PlaceViewModel(
             column: piece.column,
-            row: piece.row + 1,
+            row: piece.row - 1 * piece.player,
           ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row + 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row + 1 * piece.player,
+          )
         ];
       case 'kin':
         return [
           PlaceViewModel(
             column: piece.column,
-            row: piece.row + 1,
+            row: piece.row - 1 * piece.player,
           ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column,
+            row: piece.row + 1 * piece.player,
+          )
         ];
       case 'ou':
         return [
           PlaceViewModel(
             column: piece.column,
-            row: piece.row + 1,
+            row: piece.row - 1 * piece.player,
           ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column,
+            row: piece.row + 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column,
+            row: piece.row + 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row - 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row,
+          ),
+          PlaceViewModel(
+            column: piece.column - 1 * piece.player,
+            row: piece.row + 1 * piece.player,
+          ),
+          PlaceViewModel(
+            column: piece.column + 1 * piece.player,
+            row: piece.row + 1 * piece.player,
+          )
         ];
       default:
         return [
           PlaceViewModel(
             column: piece.column,
-            row: piece.row + 1,
+            row: piece.row - 1 * piece.player,
           ),
         ];
     }
