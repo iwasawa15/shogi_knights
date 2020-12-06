@@ -43,7 +43,15 @@ class _GamePageState extends State<GamePage> {
     if (piece.player != this.turn) {
       return null;
     }
-
+    places = places
+        .where(
+          (p) => pieces
+              .where(
+                (pi) => pi.column == p.column && pi.row == p.row,
+              )
+              .isEmpty,
+        )
+        .toList();
     setState(() {
       this.selectedPiece = piece;
       this.places = places;
