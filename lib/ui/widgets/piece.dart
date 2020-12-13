@@ -6,7 +6,12 @@ class Piece extends StatelessWidget {
   final PieceViewModel piece;
   final Function display;
 
-  Piece({this.piece, this.display});
+  static func() {}
+
+  Piece({
+    this.piece = const PieceViewModel(),
+    this.display = func,
+  });
 
   List<PlaceViewModel> movablePlace(PieceViewModel piece) {
     switch (piece.name) {
@@ -17,7 +22,6 @@ class Piece extends StatelessWidget {
             row: piece.row - 1 * piece.player,
           ),
         ];
-        break;
       case 'kaku':
         return [
           PlaceViewModel(

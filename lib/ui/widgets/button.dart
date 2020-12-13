@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color color;
   final String label;
 
   Button({
     this.onPressed,
-    this.color,
-    this.label,
+    this.color = Colors.blue,
+    this.label = '',
   });
 
   @override

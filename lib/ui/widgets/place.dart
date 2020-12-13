@@ -5,7 +5,11 @@ class Place extends StatelessWidget {
   final PlaceViewModel place;
   final Function move;
 
-  Place({this.place, this.move});
+  static func() {}
+  const Place({
+    this.place = const PlaceViewModel(),
+    this.move = func,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class Place extends StatelessWidget {
       height: 30.0,
       child: GestureDetector(
         child: Container(
-          color: Colors.orange[100].withOpacity(0.5),
+          color: Colors.orange[100]!.withOpacity(0.5),
         ),
         onTap: () {
           this.move(place);

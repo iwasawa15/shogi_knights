@@ -3,7 +3,10 @@ import 'package:shogi_knights/ui/pages/game.dart';
 import 'package:shogi_knights/ui/widgets/button.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({
+    Key key = const Key(''),
+    this.title = '',
+  }) : super(key: key);
 
   final String title;
 
@@ -30,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Button(
               onPressed: renderGamePage,
-              color: Colors.blue[200],
+              color: Colors.blue[200]!,
               label: '対局',
             ),
           ],
