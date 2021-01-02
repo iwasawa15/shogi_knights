@@ -74,28 +74,55 @@ class _GamePageState extends State<GamePage> {
         column: place.column,
         row: place.row,
         image: selectedPiece!.image,
-        player: selectedPiece!.player,
+        player: this.turn,
       );
-
+      this.pieces.remove(this.selectedPiece);
       PieceViewModel nullPiece = PieceViewModel();
       PieceViewModel handPiece = pieces.firstWhere(
         (PieceViewModel p) =>
-            (p.column == place.column) && (p.row == place.row),
+            (p.column == place.column) &&
+            (p.row == place.row) &&
+            (p.player == (this.turn * -1)),
         orElse: () => nullPiece,
       );
       if (handPiece != nullPiece) {
+        this.pieces.remove(handPiece);
         if (turn == 1) {
           this.handPieces.add(handPiece);
         } else if (turn == -1) {
           this.enemyHandPieces.add(handPiece);
         }
       }
-      debugPrint('passed2');
-      this.pieces[this.pieces.indexOf(selectedPiece!)] = newPiece;
+      this.pieces.add(newPiece);
       this.selectedPiece = null;
       this.places = [];
       this.turn *= -1;
     });
+  }
+
+  void displayPlaces(PieceViewModel piece) {
+    List<PlaceViewModel> places = [
+      PlaceViewModel(
+        column: 4,
+        row: 3,
+      ),
+    ];
+    setState(() {
+      this.selectedPiece = piece;
+      this.places = places;
+    });
+  }
+
+  void putPiece(PlaceViewModel place, PieceViewModel piece) {
+    PieceViewModel newPiece = PieceViewModel(
+      name: piece.name,
+      column: place.column,
+      row: place.row,
+      image: piece.image,
+      player: turn,
+    );
+    this.handPieces.remove(piece);
+    this.pieces.add(newPiece);
   }
 
   @override
@@ -120,6 +147,7 @@ class _GamePageState extends State<GamePage> {
           PlayerField(
             name: 'fu',
             handPieces: enemyHandPieces,
+            displayPlaces: displayPlaces,
           ),
           Stack(children: <Widget>[
             Board(),
@@ -145,6 +173,7 @@ class _GamePageState extends State<GamePage> {
           PlayerField(
             name: 'kaku',
             handPieces: handPieces,
+            displayPlaces: displayPlaces,
           ),
         ],
       ),

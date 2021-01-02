@@ -67,13 +67,6 @@ class PieceRepository {
       player: 1,
     ),
     PieceViewModel(
-      name: 'fu',
-      column: 9,
-      row: 7,
-      image: Image.asset('images/fu.png'),
-      player: 1,
-    ),
-    PieceViewModel(
       name: 'kaku',
       column: 2,
       row: 8,
@@ -205,13 +198,6 @@ class PieceRepository {
     PieceViewModel(
       name: 'fu',
       column: 8,
-      row: 3,
-      image: Image.asset('images/fu.png'),
-      player: -1,
-    ),
-    PieceViewModel(
-      name: 'fu',
-      column: 9,
       row: 3,
       image: Image.asset('images/fu.png'),
       player: -1,
